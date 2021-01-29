@@ -5,24 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] bool canMove;
-    float moveSpeed;
-    [SerializeField] float walkSpeed;
-    [SerializeField] float runSpeed;
+    [SerializeField] float moveSpeed;
     [SerializeField] float acceleration;
     [SerializeField] float jumpSpeed;
     [SerializeField] LayerMask whatIsGround;
-    [SerializeField] Transform groundCheck;
 
     [HideInInspector] public bool facingRight;
     [HideInInspector] public bool isMoving;
-    [HideInInspector] public bool isWalking;
     [HideInInspector] public bool isGrounded;
 
+    CapsuleCollider2D col;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -32,8 +30,6 @@ public class PlayerController : MonoBehaviour {
         if (hor > 0) facingRight = true;
         if (hor < 0) facingRight = false;
         isMoving = (hor != 0) && canMove && (rb.velocity.x != 0);
-        isWalking = !Input.GetKey(KeyCode.LeftShift);
-        moveSpeed = isWalking ? walkSpeed : runSpeed;
 
         if (canMove) {
             if (Mathf.Abs(rb.velocity.x) < moveSpeed) {
@@ -42,12 +38,21 @@ public class PlayerController : MonoBehaviour {
         }
 
         //Vertical Movement
-        isGrounded = Physics2D.CircleCast(groundCheck.transform.position, 0.1f, Vector2.down, 0.01f, whatIsGround);
+        isGrounded = CheckGrounded();
 
         if (isGrounded) {
-            if (Input.GetAxis("Jump") > 0) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 rb.velocity += new Vector2(0, jumpSpeed);
             }
         }
+    }
+
+    private bool CheckGrounded() {
+        float extraHeight = 0.01f;
+        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.down, col.bounds.extents.y+ extraHeight, whatIsGround);
+    }
+
+    public void ApplyPowerUp() {
+
     }
 }

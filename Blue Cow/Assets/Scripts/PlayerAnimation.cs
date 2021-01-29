@@ -7,7 +7,6 @@ public class PlayerAnimation : MonoBehaviour {
     public float FPS;
     public List<Sprite> idle;
     public List<Sprite> walk;
-    public List<Sprite> run;
     public List<Sprite> jump;
 
     private List<Sprite> previousClip;
@@ -30,14 +29,8 @@ public class PlayerAnimation : MonoBehaviour {
             return;
         }
         if (pc.isMoving) {
-            if (pc.isWalking) {
-                LoopFrames(walk);
-                return;
-            }
-            else {
-                LoopFrames(run);
-                return;
-            }
+            LoopFrames(walk);
+            return;
         }
         LoopFrames(idle);
     }
