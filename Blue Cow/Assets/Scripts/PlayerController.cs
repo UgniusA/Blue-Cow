@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float acceleration;
     public float jumpSpeed;
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsWall;
 
     [HideInInspector] public bool facingRight;
     [HideInInspector] public bool isMoving;
@@ -26,10 +27,23 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //Horizontal Movement
-        float hor = Input.GetAxis("Horizontal");
+        float hor = Input.GetAxisRaw("Horizontal");
         if (hor > 0) facingRight = true;
         if (hor < 0) facingRight = false;
         isMoving = (hor != 0) && canMove && (rb.velocity.x != 0);
+
+        if (facingRight) {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, col.bounds.extents.x + 0.1f, whatIsWall);
+            if (hit.collider != null) {
+                hor = 0;
+            }
+        }
+        else {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, col.bounds.extents.x + 0.1f, whatIsWall);
+            if (hit.collider != null) {
+                hor = 0;
+            }
+        }
 
         if (canMove) {
             if (Mathf.Abs(rb.velocity.x) < moveSpeed) {
@@ -49,6 +63,6 @@ public class PlayerController : MonoBehaviour {
 
     private bool CheckGrounded() {
         float extraHeight = 0.01f;
-        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.down, col.bounds.extents.y+ extraHeight, whatIsGround);
+        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.down, col.bounds.extents.y + extraHeight, whatIsGround);
     }
 }

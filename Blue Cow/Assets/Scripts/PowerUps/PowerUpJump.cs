@@ -7,10 +7,10 @@ public class PowerUpJump : PowerUp {
     [SerializeField] float jumpMultiplier = 2f;
 
     public override void PowerUpStat(PlayerController pc) {
-        pc.moveSpeed *= jumpMultiplier;
+        pc.jumpSpeed *= jumpMultiplier;
     }
 
     public override void PowerDownStat(PlayerController pc) {
-        pc.moveSpeed /= jumpMultiplier;
+        pc.jumpSpeed /= jumpMultiplier;
     }
 }
