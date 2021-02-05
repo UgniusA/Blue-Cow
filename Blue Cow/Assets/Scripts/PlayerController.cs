@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] bool canMove;
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
     [SerializeField] float acceleration;
-    [SerializeField] float jumpSpeed;
+    public float jumpSpeed;
     [SerializeField] LayerMask whatIsGround;
 
     [HideInInspector] public bool facingRight;
@@ -50,9 +50,5 @@ public class PlayerController : MonoBehaviour {
     private bool CheckGrounded() {
         float extraHeight = 0.01f;
         return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.down, col.bounds.extents.y+ extraHeight, whatIsGround);
-    }
-
-    public void ApplyPowerUp() {
-
     }
 }
