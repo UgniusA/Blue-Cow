@@ -6,11 +6,13 @@ public class PowerUpJump : PowerUp {
 
     [SerializeField] float jumpMultiplier = 2f;
 
-    public override void PowerUpStat(PlayerController pc) {
-        pc.jumpSpeed *= jumpMultiplier;
+    public override void PowerUpStat(PlayerStats stats) {
+        stats.jumpSpeed *= jumpMultiplier;
+        stats.UpdatePlayerStats();
     }
 
-    public override void PowerDownStat(PlayerController pc) {
-        pc.jumpSpeed /= jumpMultiplier;
+    public override void PowerDownStat(PlayerStats stats) {
+        stats.jumpSpeed /= jumpMultiplier;
+        stats.UpdatePlayerStats();
     }
 }

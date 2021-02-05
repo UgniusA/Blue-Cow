@@ -3,39 +3,24 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 
-    [SerializeField] GameObject pickupEffect;
     [SerializeField] float duration = 1f;
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.GetComponent<PlayerController>()) {
-            StartCoroutine(Pickup(other));
-        }
-    }
+    public IEnumerator Pickup() {
 
-    public IEnumerator Pickup(Collider2D player) {
-        if (pickupEffect != null) {
-            Instantiate(pickupEffect, transform.position, transform.rotation);
-        }
+        PlayerStats stats = FindObjectOfType<PlayerStats>();
 
-        PlayerController pc = player.GetComponent<PlayerController>();
-
-        PowerUpStat(pc);
-
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
+        PowerUpStat(stats);
 
         yield return new WaitForSeconds(duration);
 
-        PowerDownStat(pc);
-
-        Destroy(gameObject);
+        PowerDownStat(stats);
     }
 
-    public virtual void PowerUpStat(PlayerController pc) {
+    public virtual void PowerUpStat(PlayerStats stats) {
         //change a stat for power up
     }
 
-    public virtual void PowerDownStat(PlayerController pc) {
+    public virtual void PowerDownStat(PlayerStats stats) {
         //reset stat when power up runs out
     }
 }
