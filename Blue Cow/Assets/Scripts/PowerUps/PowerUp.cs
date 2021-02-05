@@ -3,17 +3,23 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 
-    [SerializeField] float duration = 1f;
+    public bool active;
+    public float duration = 1f;
 
-    public IEnumerator Pickup() {
+    public void EnablePowerUp() {
+        StartCoroutine(DoPowerUp());
+    }
 
+    public IEnumerator DoPowerUp() {
         PlayerStats stats = FindObjectOfType<PlayerStats>();
 
         PowerUpStat(stats);
+        active = true;
 
         yield return new WaitForSeconds(duration);
 
         PowerDownStat(stats);
+        active = false;
     }
 
     public virtual void PowerUpStat(PlayerStats stats) {

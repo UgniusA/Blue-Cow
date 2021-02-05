@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] bool canMove;
-    public float moveSpeed;
+    [HideInInspector] public float moveSpeed;
     [SerializeField] float acceleration;
-    public float jumpSpeed;
+    [HideInInspector] public float jumpSpeed;
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] LayerMask whatIsWall;
 
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
+        GetComponent<PlayerStats>().UpdatePlayerStats();
     }
 
     // Update is called once per frame

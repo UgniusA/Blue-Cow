@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
+    public bool immortal;
     public int health;
     public float moveSpeed;
     public float jumpSpeed;
@@ -17,5 +18,7 @@ public class PlayerStats : MonoBehaviour {
     public void UpdatePlayerStats() {
         pc.moveSpeed = moveSpeed;
         pc.jumpSpeed = jumpSpeed;
+        pc.GetComponent<Health>().health = health;
+        pc.GetComponent<Health>().immortal = immortal;
     }
 }

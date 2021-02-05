@@ -9,6 +9,8 @@ public class Boosts {
     public int count;
     public GameObject ItemUI;
     public Text countUI;
+    public FillTimerUI timerUI;
+    public PowerUp powerUpControl;
 }
 
 public class Inventory : MonoBehaviour {
@@ -18,6 +20,10 @@ public class Inventory : MonoBehaviour {
     public Boosts healthBoost;
     public Boosts immortalBoost;
     public Boosts superBoost;
+
+    void Start() {
+        UpdateUI();
+    }
 
     public void UpdateUI() {
         speedBoost.ItemUI.SetActive(speedBoost.count > 0);
@@ -38,23 +44,59 @@ public class Inventory : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-
+            if (speedBoost.count > 0) {
+                if (!speedBoost.powerUpControl.active) {
+                    speedBoost.timerUI.StartTimer(speedBoost.powerUpControl.duration);
+                    speedBoost.powerUpControl.EnablePowerUp();
+                    if (speedBoost.count == 1) speedBoost.powerUpControl = null;
+                    speedBoost.count--;
+                    UpdateUI();
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
-
+            if (jumpBoost.count > 0) {
+                if (!jumpBoost.powerUpControl.active) {
+                    jumpBoost.timerUI.StartTimer(jumpBoost.powerUpControl.duration);
+                    jumpBoost.powerUpControl.EnablePowerUp();
+                    if (jumpBoost.count == 1) jumpBoost.powerUpControl = null;
+                    jumpBoost.count--;
+                    UpdateUI();
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
-
+            if (healthBoost.count > 0) {
+                if (!healthBoost.powerUpControl.active) {
+                    healthBoost.timerUI.StartTimer(healthBoost.powerUpControl.duration);
+                    healthBoost.powerUpControl.EnablePowerUp();
+                    if (healthBoost.count == 1) healthBoost.powerUpControl = null;
+                    healthBoost.count--;
+                    UpdateUI();
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4)) {
-
+            if (immortalBoost.count > 0) {
+                if (!immortalBoost.powerUpControl.active) {
+                    immortalBoost.timerUI.StartTimer(immortalBoost.powerUpControl.duration);
+                    immortalBoost.powerUpControl.EnablePowerUp();
+                    if (immortalBoost.count == 1) immortalBoost.powerUpControl = null;
+                    immortalBoost.count--;
+                    UpdateUI();
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha5)) {
-
+            if (superBoost.count > 0) {
+                if (!superBoost.powerUpControl.active) {
+                    superBoost.timerUI.StartTimer(superBoost.powerUpControl.duration);
+                    superBoost.powerUpControl.EnablePowerUp();
+                    if (superBoost.count == 1) superBoost.powerUpControl = null;
+                    superBoost.count--;
+                    UpdateUI();
+                }
+            }
         }
-    }
-
-    void OnGUI() {
-        UpdateUI();
     }
 }
