@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+public class PowerUp : MonoBehaviour {
+
+}
+
 public interface IPowerUps {
     void ApplyPowerUp();
 }
