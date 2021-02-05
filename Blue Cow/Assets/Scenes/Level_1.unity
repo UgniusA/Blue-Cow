@@ -11472,31 +11472,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBoost:
-    count: 3
+    count: 0
     ItemUI: {fileID: 25354160}
     countUI: {fileID: 1914968849}
     timerUI: {fileID: 1019430777}
     powerUpControl: {fileID: 0}
   jumpBoost:
-    count: 3
+    count: 0
     ItemUI: {fileID: 171056751}
     countUI: {fileID: 313740263}
     timerUI: {fileID: 1676392205}
     powerUpControl: {fileID: 0}
   healthBoost:
-    count: 3
+    count: 0
     ItemUI: {fileID: 1629123632}
     countUI: {fileID: 668170747}
     timerUI: {fileID: 1721087764}
     powerUpControl: {fileID: 0}
   immortalBoost:
-    count: 3
+    count: 0
     ItemUI: {fileID: 1575783308}
     countUI: {fileID: 561146013}
     timerUI: {fileID: 267059458}
     powerUpControl: {fileID: 0}
   superBoost:
-    count: 3
+    count: 0
     ItemUI: {fileID: 2033623945}
     countUI: {fileID: 1524186653}
     timerUI: {fileID: 1622142213}
