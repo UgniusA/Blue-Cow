@@ -4,7 +4,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour {
 
     [SerializeField] GameObject pickupEffect;
-    [SerializeField] float duration;
+    [SerializeField] float duration = 1f;
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<PlayerController>()) {
@@ -13,7 +13,9 @@ public class PowerUp : MonoBehaviour {
     }
 
     public IEnumerator Pickup(Collider2D player) {
-        Instantiate(pickupEffect, transform.position, transform.rotation);
+        if (pickupEffect != null) {
+            Instantiate(pickupEffect, transform.position, transform.rotation);
+        }
 
         PlayerController pc = player.GetComponent<PlayerController>();
 
