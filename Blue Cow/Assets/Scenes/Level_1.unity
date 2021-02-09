@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   i: {fileID: 0}
-  powerUp: {fileID: 285587445}
+  powerUpType: 2
 --- !u!61 &236978172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -633,8 +633,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.75, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 285587447}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -856,52 +855,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 0
---- !u!1 &285587445
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 285587447}
-  - component: {fileID: 285587446}
-  m_Layer: 11
-  m_Name: Health_PoweUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &285587446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285587445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31ef7391c6cff2e47bc5cf91b59ce4b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
-  duration: 20
-  healthBonus: 50
---- !u!4 &285587447
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285587445}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 236978174}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303245566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1373,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440051958}
   m_CullTransparentMesh: 0
---- !u!1 &489543443
+--- !u!1 &483047397
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1428,22 +1381,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 489543445}
-  - component: {fileID: 489543444}
+  - component: {fileID: 483047398}
+  - component: {fileID: 483047399}
   m_Layer: 11
-  m_Name: Immortal_PoweUp
+  m_Name: PowerUp_Immortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &489543444
+--- !u!4 &483047398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483047397}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1334974457}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &483047399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489543443}
+  m_GameObject: {fileID: 483047397}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8d740774047a394b99cce6cc8a37087, type: 3}
@@ -1451,20 +1418,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   duration: 5
---- !u!4 &489543445
+--- !u!1 &493133934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493133935}
+  - component: {fileID: 493133936}
+  m_Layer: 11
+  m_Name: PowerUp_Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493133935
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489543443}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 493133934}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.75, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1653553473}
-  m_RootOrder: 0
+  m_Father: {fileID: 1334974457}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &493133936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493133934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ef7391c6cff2e47bc5cf91b59ce4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  duration: 20
+  healthBonus: 50
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,6 +2573,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758899123}
   m_CullTransparentMesh: 0
+--- !u!1 &791754414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791754415}
+  - component: {fileID: 791754416}
+  m_Layer: 11
+  m_Name: PowerUp_Super
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791754415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791754414}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.25, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1334974457}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791754416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791754414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9528d6f56462b9847aa63b2414391b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  duration: 5
+  healthBonus: 50
+  speedMultiplier: 2
+  jumpMultiplier: 2
 --- !u!1 &812755491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   i: {fileID: 0}
-  powerUp: {fileID: 2074821028}
+  powerUpType: 4
 --- !u!61 &884121241
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2848,8 +2895,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.25, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2074821030}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11476,31 +11522,31 @@ MonoBehaviour:
     ItemUI: {fileID: 25354160}
     countUI: {fileID: 1914968849}
     timerUI: {fileID: 1019430777}
-    powerUpControl: {fileID: 0}
+    powerUpControl: {fileID: 1931439433}
   jumpBoost:
     count: 0
     ItemUI: {fileID: 171056751}
     countUI: {fileID: 313740263}
     timerUI: {fileID: 1676392205}
-    powerUpControl: {fileID: 0}
+    powerUpControl: {fileID: 2133646771}
   healthBoost:
     count: 0
     ItemUI: {fileID: 1629123632}
     countUI: {fileID: 668170747}
     timerUI: {fileID: 1721087764}
-    powerUpControl: {fileID: 0}
+    powerUpControl: {fileID: 493133936}
   immortalBoost:
     count: 0
     ItemUI: {fileID: 1575783308}
     countUI: {fileID: 561146013}
     timerUI: {fileID: 267059458}
-    powerUpControl: {fileID: 0}
+    powerUpControl: {fileID: 483047399}
   superBoost:
     count: 0
     ItemUI: {fileID: 2033623945}
     countUI: {fileID: 1524186653}
     timerUI: {fileID: 1622142213}
-    powerUpControl: {fileID: 0}
+    powerUpControl: {fileID: 791754416}
 --- !u!4 &1278769333
 Transform:
   m_ObjectHideFlags: 0
@@ -11514,6 +11560,7 @@ Transform:
   m_Children:
   - {fileID: 1670013320}
   - {fileID: 1569243189}
+  - {fileID: 1334974457}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11591,8 +11638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7020566d80aed4bb4624497402d058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  immortal: 0
-  health: 100
   moveSpeed: 1.5
   jumpSpeed: 3
 --- !u!114 &1278769338
@@ -11609,7 +11654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   immortal: 0
   health: 100
-  maxHealth: 0
+  maxHealth: 100
 --- !u!1 &1291112032
 GameObject:
   m_ObjectHideFlags: 0
@@ -11716,10 +11761,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2034076668}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1291112037
 MonoBehaviour:
@@ -11735,7 +11779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   i: {fileID: 0}
-  powerUp: {fileID: 2034076667}
+  powerUpType: 1
 --- !u!1 &1307855315
 GameObject:
   m_ObjectHideFlags: 0
@@ -11810,6 +11854,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307855315}
   m_CullTransparentMesh: 0
+--- !u!1 &1334974456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334974457}
+  m_Layer: 8
+  m_Name: PowerUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334974457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334974456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1931439434}
+  - {fileID: 2133646770}
+  - {fileID: 493133935}
+  - {fileID: 483047398}
+  - {fileID: 791754415}
+  m_Father: {fileID: 1278769333}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376076396
 GameObject:
   m_ObjectHideFlags: 0
@@ -12748,7 +12827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   i: {fileID: 0}
-  powerUp: {fileID: 489543443}
+  powerUpType: 3
 --- !u!61 &1653553471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12836,8 +12915,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 489543445}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13755,10 +13833,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.25, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1997998574}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1930347108
 MonoBehaviour:
@@ -13774,8 +13851,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   i: {fileID: 0}
-  powerUp: {fileID: 1997998573}
---- !u!1 &1997998573
+  powerUpType: 0
+--- !u!1 &1931439432
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13783,36 +13860,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1997998574}
-  - component: {fileID: 1997998575}
+  - component: {fileID: 1931439434}
+  - component: {fileID: 1931439433}
   m_Layer: 11
-  m_Name: Speed_PoweUp
+  m_Name: PowerUp_Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1997998574
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997998573}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1930347106}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1997998575
+--- !u!114 &1931439433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997998573}
+  m_GameObject: {fileID: 1931439432}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c73e230e60b17dd48af0de06e830f3f5, type: 3}
@@ -13821,6 +13884,20 @@ MonoBehaviour:
   active: 0
   duration: 3
   speedMultiplier: 2
+--- !u!4 &1931439434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931439432}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.25, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1334974457}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2029063802
 GameObject:
   m_ObjectHideFlags: 0
@@ -14028,7 +14105,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033623945}
   m_CullTransparentMesh: 0
---- !u!1 &2034076667
+--- !u!1 &2133646769
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14036,36 +14113,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2034076668}
-  - component: {fileID: 2034076669}
+  - component: {fileID: 2133646770}
+  - component: {fileID: 2133646771}
   m_Layer: 11
-  m_Name: Jump_PowerUp
+  m_Name: PowerUp_Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2034076668
+--- !u!4 &2133646770
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034076667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 2133646769}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1291112035}
-  m_RootOrder: 0
+  m_Father: {fileID: 1334974457}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2034076669
+--- !u!114 &2133646771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034076667}
+  m_GameObject: {fileID: 2133646769}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 506fd39f2cde8924fbc718b1d647f6c8, type: 3}
@@ -14074,51 +14151,3 @@ MonoBehaviour:
   active: 0
   duration: 1
   jumpMultiplier: 2
---- !u!1 &2074821028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2074821030}
-  - component: {fileID: 2074821029}
-  m_Layer: 11
-  m_Name: Super_PoweUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2074821029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074821028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9528d6f56462b9847aa63b2414391b95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
-  duration: 5
-  healthBonus: 50
-  speedMultiplier: 2
-  jumpMultiplier: 2
---- !u!4 &2074821030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074821028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 884121243}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

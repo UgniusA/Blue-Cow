@@ -4,43 +4,30 @@ using UnityEngine;
 
 public class PowerUpPickUp : Collectable {
 
-    [SerializeField] GameObject powerUp;
+    public enum PowerUpType { Speed, Jump, Health, Immortal, All};
+    [SerializeField] PowerUpType powerUpType = PowerUpType.Health;
 
     public override void Pickup() {
-        if (powerUp.GetComponent<PowerUpSpeed>()) {
-            if (i.speedBoost.powerUpControl == null) {
-                powerUp.transform.parent = i.transform;
-                i.speedBoost.powerUpControl = powerUp.GetComponent<PowerUpSpeed>();
-            }
-            i.speedBoost.count++;
-        }
-        if (powerUp.GetComponent<PowerUpJump>()) {
-            if (i.jumpBoost.powerUpControl == null) {
-                powerUp.transform.parent = i.transform;
-                i.jumpBoost.powerUpControl = powerUp.GetComponent<PowerUpJump>();
-            }
-            i.jumpBoost.count++;
-        }
-        if (powerUp.GetComponent<PowerUpHealth>()) {
-            if (i.healthBoost.powerUpControl == null) {
-            powerUp.transform.parent = i.transform;
-                i.healthBoost.powerUpControl = powerUp.GetComponent<PowerUpHealth>();
-            }
-            i.healthBoost.count++;
-        }
-        if (powerUp.GetComponent<PowerUpImmortal>()) {
-            if (i.immortalBoost.powerUpControl == null) {
-                powerUp.transform.parent = i.transform;
-                i.immortalBoost.powerUpControl = powerUp.GetComponent<PowerUpImmortal>();
-            }
-            i.immortalBoost.count++;
-        }
-        if (powerUp.GetComponent<PowerUpSuper>()) {
-            if (i.superBoost.powerUpControl == null) {
-                powerUp.transform.parent = i.transform;
-                i.superBoost.powerUpControl = powerUp.GetComponent<PowerUpSuper>();
-            }
-            i.superBoost.count++;
+        switch (powerUpType) {
+            case PowerUpType.Speed:
+                i.speedBoost.count++;
+                break;
+
+            case PowerUpType.Jump:
+                i.jumpBoost.count++;
+                break;
+
+            case PowerUpType.Health:
+                i.healthBoost.count++;
+                break;
+
+            case PowerUpType.Immortal:
+                i.immortalBoost.count++;
+                break;
+
+            case PowerUpType.All:
+                i.superBoost.count++;
+                break;
         }
         i.UpdateUI();
     }

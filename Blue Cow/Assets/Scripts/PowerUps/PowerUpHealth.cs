@@ -7,12 +7,14 @@ public class PowerUpHealth : PowerUp {
     [SerializeField] int healthBonus = 50;
 
     public override void PowerUpStat(PlayerStats stats) {
-        stats.health += healthBonus;
+        Health playerHealth = stats.GetComponent<Health>();
+        playerHealth.health += healthBonus;
         stats.UpdatePlayerStats();
     }
 
     public override void PowerDownStat(PlayerStats stats) {
-        stats.health -= healthBonus;
+        Health playerHealth = stats.GetComponent<Health>();
+        playerHealth.health -= playerHealth.health - playerHealth.maxHealth;
         stats.UpdatePlayerStats();
     }
 }

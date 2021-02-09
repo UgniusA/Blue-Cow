@@ -6,7 +6,7 @@ public class Health : MonoBehaviour, IDamageable {
 
     public bool immortal;
     public int health = 100;
-    [HideInInspector] public int maxHealth;
+    public int maxHealth = 100;
 
     public void Damage(int damage) {
         if (!immortal) {

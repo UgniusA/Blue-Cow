@@ -9,18 +9,20 @@ public class PowerUpSuper : PowerUp {
     [SerializeField] float jumpMultiplier = 3f;
 
     public override void PowerUpStat(PlayerStats stats) {
-        stats.health += healthBonus;
+        Health playerHealth = stats.GetComponent<Health>();
+        playerHealth.health += healthBonus;
         stats.moveSpeed *= speedMultiplier;
         stats.jumpSpeed *= jumpMultiplier;
-        stats.immortal = true;
+        playerHealth.immortal = true;
         stats.UpdatePlayerStats();
     }
 
     public override void PowerDownStat(PlayerStats stats) {
-        stats.health -= healthBonus;
+        Health playerHealth = stats.GetComponent<Health>();
+        playerHealth.health -= playerHealth.health - playerHealth.maxHealth;
         stats.moveSpeed /= speedMultiplier;
         stats.jumpSpeed /= jumpMultiplier;
-        stats.immortal = false;
+        playerHealth.immortal = false;
         stats.UpdatePlayerStats();
     }
 }
