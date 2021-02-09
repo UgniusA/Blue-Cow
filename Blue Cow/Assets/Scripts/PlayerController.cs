@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public float jumpSpeed;
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] LayerMask whatIsWall;
+    [SerializeField] float raycastExtraLength = 0.01f;
 
     [HideInInspector] public bool facingRight;
     [HideInInspector] public bool isMoving;
@@ -34,13 +35,13 @@ public class PlayerController : MonoBehaviour {
         isMoving = (hor != 0) && canMove && (rb.velocity.x != 0);
 
         if (facingRight) {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, col.bounds.extents.x + 0.1f, whatIsWall);
+            RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.right, col.bounds.extents.x + raycastExtraLength, whatIsWall);
             if (hit.collider != null) {
                 hor = 0;
             }
         }
         else {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, col.bounds.extents.x + 0.1f, whatIsWall);
+            RaycastHit2D hit = Physics2D.Raycast(col.bounds.center, Vector2.left, col.bounds.extents.x + raycastExtraLength, whatIsWall);
             if (hit.collider != null) {
                 hor = 0;
             }
@@ -63,7 +64,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private bool CheckGrounded() {
-        float extraHeight = 0.01f;
-        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.down, col.bounds.extents.y + extraHeight, whatIsGround);
+        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.down, col.bounds.extents.y + raycastExtraLength, whatIsGround);
     }
 }

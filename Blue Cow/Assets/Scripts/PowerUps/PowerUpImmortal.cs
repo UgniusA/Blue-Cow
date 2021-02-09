@@ -7,12 +7,12 @@ public class PowerUpImmortal : PowerUp {
     public override void PowerUpStat(PlayerStats stats) {
         Health playerHealth = stats.GetComponent<Health>();
         playerHealth.immortal = true;
-        stats.UpdatePlayerStats();
+        playerHealth.UpdateHealth();
     }
 
     public override void PowerDownStat(PlayerStats stats) {
         Health playerHealth = stats.GetComponent<Health>();
         playerHealth.immortal = false;
-        stats.UpdatePlayerStats();
+        playerHealth.UpdateHealth();
     }
 }

@@ -14,6 +14,7 @@ public class PowerUpSuper : PowerUp {
         stats.moveSpeed *= speedMultiplier;
         stats.jumpSpeed *= jumpMultiplier;
         playerHealth.immortal = true;
+        playerHealth.UpdateHealth();
         stats.UpdatePlayerStats();
     }
 
@@ -23,6 +24,7 @@ public class PowerUpSuper : PowerUp {
         stats.moveSpeed /= speedMultiplier;
         stats.jumpSpeed /= jumpMultiplier;
         playerHealth.immortal = false;
+        playerHealth.UpdateHealth();
         stats.UpdatePlayerStats();
     }
 }

@@ -8,6 +8,10 @@ public class Health : MonoBehaviour, IDamageable {
     public int health = 100;
     public int maxHealth = 100;
 
+    void Start() {
+        UpdateHealth();
+    }
+
     public void Damage(int damage) {
         if (!immortal) {
             health -= damage;
@@ -34,6 +38,9 @@ public class Health : MonoBehaviour, IDamageable {
     }
 
     public void UpdateHealth() {
+        if (GetComponent<HealthUI>()) {
+            GetComponent<HealthUI>().UpdateUI();
+        }
         if (health <= 0) {
             DestroyObject();
         }

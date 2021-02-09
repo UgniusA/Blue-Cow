@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour {
 
-    [SerializeField] Transform heartsParent;
+    [SerializeField] Transform healthBar;
     [SerializeField] GameObject heartPrefab;
     [SerializeField] Sprite heart;
     [SerializeField] Sprite heartHalf;
@@ -20,11 +20,16 @@ public class HealthUI : MonoBehaviour {
         healthScript = GetComponent<Health>();
     }
 
-    void UpdateUI() {
+    public void UpdateUI() {
         hearts.Clear();
+        foreach (Transform child in healthBar) {
+            Destroy(child.gameObject);
+        }
+
         for (int i = 0; i < (healthScript.health + 1) / 2; i++) {
             GameObject heartObj = Instantiate(heartPrefab);
-            heartObj.transform.parent = heartsParent;
+            heartObj.transform.SetParent(healthBar);
+            heartObj.transform.localScale = Vector3.one;
             hearts.Add(heartObj);
             if (healthScript.immortal) {
                 hearts[i].GetComponent<Image>().sprite = immortalHeart;

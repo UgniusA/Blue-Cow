@@ -9,12 +9,15 @@ public class PowerUpHealth : PowerUp {
     public override void PowerUpStat(PlayerStats stats) {
         Health playerHealth = stats.GetComponent<Health>();
         playerHealth.health += healthBonus;
-        stats.UpdatePlayerStats();
+        playerHealth.UpdateHealth();
     }
 
     public override void PowerDownStat(PlayerStats stats) {
         Health playerHealth = stats.GetComponent<Health>();
-        playerHealth.health -= playerHealth.health - playerHealth.maxHealth;
+        if (playerHealth.health > playerHealth.maxHealth) {
+            playerHealth.health -= playerHealth.health - playerHealth.maxHealth;
+        }
         stats.UpdatePlayerStats();
+        playerHealth.UpdateHealth();
     }
 }
