@@ -11,6 +11,25 @@ public class Health : MonoBehaviour, IDamageable {
     public void Damage(int damage) {
         if (!immortal) {
             health -= damage;
+            UpdateHealth();
+        }
+    }
+
+    public IEnumerator DamageOverTime(int damage, float tickTime, float duration) {
+        if (duration == 0) {
+            while (true) {
+                yield return new WaitForSeconds(tickTime);
+                Damage(damage);
+                duration -= tickTime;
+            }
+        }
+        else {
+            while (duration > 0) {
+                yield return new WaitForSeconds(tickTime);
+                Damage(damage);
+                duration -= tickTime;
+            }
+            yield break;
         }
     }
 
