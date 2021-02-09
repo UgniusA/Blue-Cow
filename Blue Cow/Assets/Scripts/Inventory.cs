@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class Boosts {
     public Text countUI;
     public FillTimerUI timerUI;
     public PowerUp powerUpControl;
+    public bool hasSeen;
 }
 
 public class Inventory : MonoBehaviour {
@@ -21,7 +23,14 @@ public class Inventory : MonoBehaviour {
     public Boosts immortalBoost;
     public Boosts superBoost;
 
+    [Header("ItemInfo")]
+    public GameObject itemInfoUI;
+    public TextMeshProUGUI itemTitle;
+    public Image itemSprite;
+    public TextMeshProUGUI itemInfo;
+
     void Start() {
+        itemInfoUI.SetActive(false);
         UpdateUI();
     }
 
@@ -98,5 +107,10 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void HideItemInfo() {
+        itemInfoUI.SetActive(false);
+        Time.timeScale = 1;
     }
 }
