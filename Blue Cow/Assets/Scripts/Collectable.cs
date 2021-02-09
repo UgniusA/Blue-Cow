@@ -1,6 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Collectable : MonoBehaviour {
 
@@ -9,7 +7,7 @@ public class Collectable : MonoBehaviour {
     [Header("Information UI")]
     [SerializeField] string itemName;
     [SerializeField] Sprite itemSprite;
-    [SerializeField] [TextArea] string itemInfo;
+    [SerializeField] [TextArea(1, 5)] string itemInfo;
 
     [HideInInspector] public Inventory i;
 
@@ -22,17 +20,17 @@ public class Collectable : MonoBehaviour {
             if (pickupEffect != null) {
                 Instantiate(pickupEffect, transform.position, transform.rotation);
             }
-            DisplayInformation();
             Pickup();
             Destroy(gameObject);
         }
     }
 
     public virtual void Pickup() {
+        DisplayInformation();
         i.UpdateUI();
     }
 
-    void DisplayInformation() {
+    public void DisplayInformation() {
         i.itemTitle.text = itemName;
         i.itemSprite.sprite = itemSprite;
         i.itemInfo.text = itemInfo;
