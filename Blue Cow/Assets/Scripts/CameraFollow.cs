@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour {
 
     [SerializeField] Transform target;
     [SerializeField] float positionSmooth = 0.3f;
+    [SerializeField] bool fixedUpdate;
 
     Vector3 _velocity = Vector3.zero;
 
@@ -16,7 +17,16 @@ public class CameraFollow : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Vector3 targetPos = new Vector3(target.transform.position.x, target.transform.position.y, -10);
-        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _velocity, positionSmooth);
+        if (!fixedUpdate) {
+            Vector3 targetPos = new Vector3(target.transform.position.x, target.transform.position.y, -10);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _velocity, positionSmooth);
+        }
+    }
+
+    void FixedUpdate() {
+        if (fixedUpdate) {
+            Vector3 targetPos = new Vector3(target.transform.position.x, target.transform.position.y, -10);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _velocity, positionSmooth);
+        }
     }
 }
