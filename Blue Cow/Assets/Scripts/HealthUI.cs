@@ -16,7 +16,7 @@ public class HealthUI : MonoBehaviour {
     Health healthScript;
 
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         healthScript = GetComponent<Health>();
     }
 
