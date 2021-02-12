@@ -8,13 +8,24 @@ public class Health : MonoBehaviour, IDamageable {
     public int health = 100;
     public int maxHealth = 100;
 
-    void Start() {
+    [Header("Visuals")]
+    [SerializeField] bool renderHitVisuals;
+    [SerializeField] SpriteRenderer sr;
+    [SerializeField] Color hitColor;
+    [SerializeField] float colorTimer;
+
+    public virtual void Initialise() {
         UpdateHealth();
+    }
+
+    void Start() {
+        Initialise();
     }
 
     public void Damage(int damage) {
         if (!immortal) {
             health -= damage;
+            StartCoroutine(HitVisuals(colorTimer, damage));
             UpdateHealth();
         }
     }
@@ -24,6 +35,7 @@ public class Health : MonoBehaviour, IDamageable {
             while (true) {
                 yield return new WaitForSeconds(tickTime);
                 Damage(damage);
+                StartCoroutine(HitVisuals(colorTimer, damage));
                 duration -= tickTime;
             }
         }
@@ -31,6 +43,7 @@ public class Health : MonoBehaviour, IDamageable {
             while (duration > 0) {
                 yield return new WaitForSeconds(tickTime);
                 Damage(damage);
+                StartCoroutine(HitVisuals(colorTimer, damage));
                 duration -= tickTime;
             }
             yield break;
@@ -46,8 +59,19 @@ public class Health : MonoBehaviour, IDamageable {
         }
     }
 
-    public void DestroyObject() {
+    public virtual void DestroyObject() {
         health = 0;
         Destroy(gameObject);
+    }
+
+    IEnumerator HitVisuals(float timer, int damage) {
+        if (renderHitVisuals) {
+            if (damage > 0) {
+                sr.color = hitColor;
+                yield return new WaitForSeconds(timer);
+                sr.color = Color.white;
+                yield break;
+            }
+        }
     }
 }

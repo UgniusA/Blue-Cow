@@ -21,4 +21,20 @@ public class SpeedModifier : MonoBehaviour {
             ps.UpdatePlayerStats();
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        PlayerStats ps = collision.gameObject.GetComponent<PlayerStats>();
+        if (ps != null) {
+            ps.moveSpeed *= speedMultiplier;
+            ps.UpdatePlayerStats();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision) {
+        PlayerStats ps = collision.gameObject.GetComponent<PlayerStats>();
+        if (ps != null) {
+            ps.moveSpeed /= speedMultiplier;
+            ps.UpdatePlayerStats();
+        }
+    }
 }

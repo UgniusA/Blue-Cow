@@ -5,17 +5,21 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour {
 
     [HideInInspector] public Transform lastCheckpoint;
-    GameObject thePlayer;
+    PlayerController pc;
+    PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start() {
-        thePlayer = FindObjectOfType<PlayerController>().gameObject;
+        pc = FindObjectOfType<PlayerController>();
+        playerHealth = pc.GetComponent<PlayerHealth>();
         lastCheckpoint = GameObject.FindWithTag("Spawnpoint").transform;
         RespawnPlayer();
     }
 
     public void RespawnPlayer() {
-        thePlayer.transform.position = lastCheckpoint.position;
-        thePlayer.SetActive(true);
+        pc.transform.position = lastCheckpoint.position;
+        pc.gameObject.SetActive(true);
+        playerHealth.health = playerHealth.maxHealth;
+        playerHealth.UpdateHealth();
     }
 }
