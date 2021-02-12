@@ -57,7 +57,7 @@ public class Inventory : MonoBehaviour {
                 if (!speedBoost.powerUpControl.active) {
                     speedBoost.timerUI.StartTimer(speedBoost.powerUpControl.duration);
                     speedBoost.powerUpControl.EnablePowerUp();
-                    if (speedBoost.count == 1) speedBoost.powerUpControl = null;
+                    //if (speedBoost.count == 1) speedBoost.powerUpControl = null;
                     speedBoost.count--;
                     UpdateUI();
                 }
@@ -68,7 +68,7 @@ public class Inventory : MonoBehaviour {
                 if (!jumpBoost.powerUpControl.active) {
                     jumpBoost.timerUI.StartTimer(jumpBoost.powerUpControl.duration);
                     jumpBoost.powerUpControl.EnablePowerUp();
-                    if (jumpBoost.count == 1) jumpBoost.powerUpControl = null;
+                    //if (jumpBoost.count == 1) jumpBoost.powerUpControl = null;
                     jumpBoost.count--;
                     UpdateUI();
                 }
@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour {
                 if (!healthBoost.powerUpControl.active) {
                     healthBoost.timerUI.StartTimer(healthBoost.powerUpControl.duration);
                     healthBoost.powerUpControl.EnablePowerUp();
-                    if (healthBoost.count == 1) healthBoost.powerUpControl = null;
+                    //if (healthBoost.count == 1) healthBoost.powerUpControl = null;
                     healthBoost.count--;
                     UpdateUI();
                 }
@@ -90,7 +90,7 @@ public class Inventory : MonoBehaviour {
                 if (!immortalBoost.powerUpControl.active) {
                     immortalBoost.timerUI.StartTimer(immortalBoost.powerUpControl.duration);
                     immortalBoost.powerUpControl.EnablePowerUp();
-                    if (immortalBoost.count == 1) immortalBoost.powerUpControl = null;
+                    //if (immortalBoost.count == 1) immortalBoost.powerUpControl = null;
                     immortalBoost.count--;
                     UpdateUI();
                 }
@@ -101,7 +101,7 @@ public class Inventory : MonoBehaviour {
                 if (!superBoost.powerUpControl.active) {
                     superBoost.timerUI.StartTimer(superBoost.powerUpControl.duration);
                     superBoost.powerUpControl.EnablePowerUp();
-                    if (superBoost.count == 1) superBoost.powerUpControl = null;
+                    //if (superBoost.count == 1) superBoost.powerUpControl = null;
                     superBoost.count--;
                     UpdateUI();
                 }
