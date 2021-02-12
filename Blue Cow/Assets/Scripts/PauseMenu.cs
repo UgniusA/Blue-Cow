@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void RestartGame() {
+        Time.timeScale = 1;
         pauseMenu.SetActive(false);
         quitConfirmMenu.SetActive(false);
         restartConfirmMenu.SetActive(false);
@@ -43,6 +44,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void GotoMainMenu() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
