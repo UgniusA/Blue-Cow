@@ -35,7 +35,6 @@ public class Health : MonoBehaviour, IDamageable {
             while (true) {
                 yield return new WaitForSeconds(tickTime);
                 Damage(damage);
-                StartCoroutine(HitVisuals(colorTimer, damage));
                 duration -= tickTime;
             }
         }
@@ -43,7 +42,6 @@ public class Health : MonoBehaviour, IDamageable {
             while (duration > 0) {
                 yield return new WaitForSeconds(tickTime);
                 Damage(damage);
-                StartCoroutine(HitVisuals(colorTimer, damage));
                 duration -= tickTime;
             }
             yield break;
