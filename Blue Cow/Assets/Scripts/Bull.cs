@@ -54,7 +54,7 @@ public class Bull : MonoBehaviour {
         canCharge = false;
         isCharging = true;
         rb.velocity = Vector2.right * dir * chargeSpeed;
-        Debug.Log(Vector2.right * dir * chargeSpeed);
+        Debug.Log(rb.velocity);
         yield return new WaitForSeconds(chargeTime);
         StopCharge();
         yield break;
