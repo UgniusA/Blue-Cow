@@ -13421,13 +13421,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464433559}
   m_CullTransparentMesh: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 90baa7c (fixed bull added chicken)
-=======
->>>>>>> parent of 90baa7c (fixed bull added chicken)
 --- !u!1 &1520744205
 GameObject:
   m_ObjectHideFlags: 0
