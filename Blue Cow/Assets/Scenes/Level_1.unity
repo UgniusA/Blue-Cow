@@ -14079,6 +14079,9 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 90baa7c (fixed bull added chicken)
 =======
 >>>>>>> parent of 90baa7c (fixed bull added chicken)
 --- !u!1 &1520744205
@@ -14135,7 +14138,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Offset: {x: -0.0036886334, y: -0.019999996}
+=======
+  m_Offset: {x: -0.01, y: -0.02}
+>>>>>>> parent of 90baa7c (fixed bull added chicken)
 =======
   m_Offset: {x: -0.01, y: -0.02}
 >>>>>>> parent of 90baa7c (fixed bull added chicken)
@@ -14150,7 +14157,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 0.4420904, y: 0.25}
+=======
+  m_Size: {x: 0.5, y: 0.25}
+>>>>>>> parent of 90baa7c (fixed bull added chicken)
 =======
   m_Size: {x: 0.5, y: 0.25}
 >>>>>>> parent of 90baa7c (fixed bull added chicken)
@@ -14192,8 +14203,11 @@ Transform:
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 90baa7c44ba8c00c9c711f1fc2f8a5cdd3947d11
+=======
+>>>>>>> parent of 90baa7c (fixed bull added chicken)
 =======
 >>>>>>> parent of 90baa7c (fixed bull added chicken)
 --- !u!1 &1524186651
