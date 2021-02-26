@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bull : MonoBehaviour {
 
+    [SerializeField] LayerMask collisionLayers;
     [SerializeField] float sightRange;
     [SerializeField] int damage;
-    [SerializeField] float movespeed;
     [SerializeField] float chargeSpeed;
     public bool isCharging;
     public bool canCharge;
@@ -40,11 +40,9 @@ public class Bull : MonoBehaviour {
             }
         }
         if (isCharging) {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * -moveDir, col.bounds.extents.x + 0.1f);
-            if (hit.collider.gameObject == player) {
-                Debug.Log("hit");
+            RaycastHit2D hit = Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.right * moveDir, (col.bounds.extents.x / 2) + 0.1f, collisionLayers);
+            if (hit) {
                 player.GetComponent<Health>().Damage(damage);
-                //rb.velocity = Vector2.zero;
                 StopCharge();
             }
         }
@@ -61,10 +59,12 @@ public class Bull : MonoBehaviour {
 
     void StopCharge() {
         isCharging = false;
+        rb.velocity = Vector2.zero;
         StartCoroutine(WaitTillCharge());
     }
 
     IEnumerator WaitTillCharge() {
+        canCharge = false;
         yield return new WaitForSeconds(chargeResetTime);
         canCharge = true;
     }
