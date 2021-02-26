@@ -40,7 +40,7 @@ public class Bull : MonoBehaviour {
             }
         }
         if (isCharging) {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * moveDir, col.bounds.extents.x + 0.01f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * -moveDir, col.bounds.extents.x + 0.1f);
             if (hit.collider.gameObject == player) {
                 Debug.Log("hit");
                 player.GetComponent<Health>().Damage(damage);
@@ -57,7 +57,6 @@ public class Bull : MonoBehaviour {
         Debug.Log(rb.velocity);
         yield return new WaitForSeconds(chargeTime);
         StopCharge();
-        yield break;
     }
 
     void StopCharge() {
@@ -68,7 +67,6 @@ public class Bull : MonoBehaviour {
     IEnumerator WaitTillCharge() {
         yield return new WaitForSeconds(chargeResetTime);
         canCharge = true;
-        yield break;
     }
     /*
     void OnCollisionEnter2D(Collision2D collision) {
