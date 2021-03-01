@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour {
                 if (dist.magnitude < sightRange) {
                     sr.flipX = dist.x > 0;
                     moveDir = dist.x < 0 ? -1 : 1;
-                    Debug.Log(Vector2.right * moveDir * chargeSpeed);
                     waitTillCharge = chargeResetTime;
                     waitTillStopCharge = chargeTime;
                     currentState = EnemyState.Charging;
@@ -67,7 +66,6 @@ public class Enemy : MonoBehaviour {
 
                 if (Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.right * moveDir, (col.bounds.extents.x / 2) + 0.01f, collisionLayers)) {
                     player.GetComponent<Health>().Damage(damage);
-                    //StopCharge();
                     currentState = EnemyState.Waiting;
                 }
                 break;

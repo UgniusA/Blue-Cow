@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour {
             isMoving = (hor != 0) && canMove && (rb.velocity.x != 0);
 
             if (Mathf.Abs(rb.velocity.x) < moveSpeed) {
-                //rb.velocity += new Vector2(hor * moveSpeed, 0) * acceleration * Time.deltaTime;
                 rb.velocity += Vector2.right * hor * moveSpeed * acceleration * Time.deltaTime;
             }
 
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour {
 
             if (isGrounded) {
                 if (Input.GetKeyDown(KeyCode.Space)) {
-                    //rb.velocity += new Vector2(0, jumpSpeed);
                     rb.velocity += Vector2.up * jumpSpeed;
                 }
                 if (hor == 0) {
