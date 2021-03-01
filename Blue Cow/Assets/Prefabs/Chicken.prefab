@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2666106337862547300}
   - component: {fileID: 2666106337862547303}
   - component: {fileID: 2666106337862547302}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2666106338782870587}
   - component: {fileID: 2666106338782870586}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

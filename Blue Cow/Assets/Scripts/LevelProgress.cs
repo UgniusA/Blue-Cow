@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class LevelProgress : MonoBehaviour {
 
-    [SerializeField] float levelTimer;
-    float cowTime;
+    float cowProgress;
     float playerProgress;
 
     [SerializeField] Slider cowProgressSlider;
     [SerializeField] Slider playerProgressSlider;
 
+    BlueCow bc;
     PlayerController pc;
     Vector2 startPos;
     Vector2 endPos;
@@ -22,18 +22,16 @@ public class LevelProgress : MonoBehaviour {
         startPos = GameObject.FindWithTag("Spawnpoint").transform.position;
         endPos = transform.position;
         totalDistance = endPos.x - startPos.x;
-        cowTime = levelTimer * 0.2f;
+        pc = FindObjectOfType<PlayerController>();
+        bc = FindObjectOfType<BlueCow>();
     }
 
     // Update is called once per frame
     void Update() {
-        cowTime += Time.deltaTime;
-        cowTime = Mathf.Clamp(cowTime, 0, levelTimer);
+        cowProgress = bc.transform.position.x - startPos.x / totalDistance;
+        cowProgressSlider.value = cowProgress;
 
-        cowProgressSlider.value = cowTime / levelTimer;
-
-        float current = pc.transform.position.x - startPos.x;
-        playerProgress = current / totalDistance;
+        playerProgress = pc.transform.position.x - startPos.x / totalDistance;
         playerProgressSlider.value = playerProgress;
     }
 }

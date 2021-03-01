@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float deceleration;
     [HideInInspector] public float jumpSpeed;
     [SerializeField] LayerMask whatIsGround;
-    [SerializeField] LayerMask whatIsWall;
-    [SerializeField] float raycastExtraWidth = 0.01f;
     [SerializeField] float raycastExtraHeight = 0.01f;
 
     [HideInInspector] public bool facingRight;
