@@ -14,24 +14,22 @@ public class LevelProgress : MonoBehaviour {
     BlueCow bc;
     PlayerController pc;
     Vector2 startPos;
-    Vector2 endPos;
     float totalDistance;
 
     // Start is called before the first frame update
     void Start() {
         startPos = GameObject.FindWithTag("Spawnpoint").transform.position;
-        endPos = transform.position;
-        totalDistance = endPos.x - startPos.x;
+        totalDistance = transform.position.x - startPos.x;
         pc = FindObjectOfType<PlayerController>();
         bc = FindObjectOfType<BlueCow>();
     }
 
     // Update is called once per frame
     void Update() {
-        cowProgress = bc.transform.position.x - startPos.x / totalDistance;
+        cowProgress = (bc.transform.position.x - startPos.x) / totalDistance;
         cowProgressSlider.value = cowProgress;
 
-        playerProgress = pc.transform.position.x - startPos.x / totalDistance;
+        playerProgress = (pc.transform.position.x - startPos.x) / totalDistance;
         playerProgressSlider.value = playerProgress;
     }
 }

@@ -1831,12 +1831,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342298009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.48, y: -0.48, z: 0}
+  m_LocalPosition: {x: 1.12, y: -0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 814175805}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &342298013
 MonoBehaviour:
@@ -1851,27 +1851,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  moveSpeed: 1.5
+  moveSpeed: 1.1
   acceleration: 12
   deceleration: 12
   jumpSpeed: 3
+  jumpIntervalTime: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4608
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 512
-  raycastExtraWidth: 0.01
+    m_Bits: 4608
+  raycastExtraWidth: 0.05
   raycastExtraHeight: 0.01
-  FPS: 4
+  FPS: 8
   sr: {fileID: 814175806}
   idle:
   - {fileID: -2524360668353719653, guid: ff62091040c251442b51f0432aeee613, type: 3}
   walk:
-  - {fileID: -2524360668353719653, guid: ff62091040c251442b51f0432aeee613, type: 3}
   - {fileID: -8674248840651322813, guid: ff62091040c251442b51f0432aeee613, type: 3}
   - {fileID: -2524360668353719653, guid: ff62091040c251442b51f0432aeee613, type: 3}
   - {fileID: -7055808051515837602, guid: ff62091040c251442b51f0432aeee613, type: 3}
+  - {fileID: -2524360668353719653, guid: ff62091040c251442b51f0432aeee613, type: 3}
   jump:
   - {fileID: -8674248840651322813, guid: ff62091040c251442b51f0432aeee613, type: 3}
   - {fileID: -7055808051515837602, guid: ff62091040c251442b51f0432aeee613, type: 3}
@@ -2736,7 +2737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5057967eaab4a0c4d8729acc6a1553b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 342298012}
+  target: {fileID: 1278769333}
   positionSmooth: 0.1
   fixedUpdate: 1
 --- !u!20 &519420031
@@ -18078,7 +18079,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 24833
   m_RotationalOffset: 0
   m_UseOneWay: 0
   m_UseOneWayGrouping: 0
@@ -18278,7 +18279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178079682
 GameObject:
@@ -22526,7 +22527,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 24833
   m_RotationalOffset: 0
   m_UseOneWay: 0
   m_UseOneWayGrouping: 0

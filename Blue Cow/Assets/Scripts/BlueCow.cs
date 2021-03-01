@@ -9,15 +9,18 @@ public class BlueCow : MonoBehaviour {
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
     [SerializeField] float jumpSpeed;
+    [SerializeField] float jumpIntervalTime;
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] LayerMask whatIsWall;
     [SerializeField] float raycastExtraWidth = 0.01f;
     [SerializeField] float raycastExtraHeight = 0.01f;
 
     bool facingRight;
+    bool isMoving;
+
     bool isGrounded;
     bool doJump;
-    bool isMoving;
+    float jumpTimer;
 
     CapsuleCollider2D col;
     Rigidbody2D rb;
@@ -52,7 +55,11 @@ public class BlueCow : MonoBehaviour {
                 rb.velocity += Vector2.right * hor * moveSpeed * acceleration * Time.deltaTime;
             }
 
-            //doJump = CheckWall(hor);
+            if (jumpTimer <= 0) {
+                doJump = CheckWall(hor);
+            }
+            jumpTimer -= Time.deltaTime;
+            jumpTimer = Mathf.Clamp(jumpTimer, 0, jumpIntervalTime);
 
             //Vertical Movement
             isGrounded = CheckGrounded();
@@ -60,11 +67,16 @@ public class BlueCow : MonoBehaviour {
             if (isGrounded) {
                 if (doJump) {
                     doJump = false;
+                    jumpTimer = jumpIntervalTime;
                     rb.velocity += Vector2.up * jumpSpeed;
                 }
                 if (hor == 0) {
                     rb.velocity -= Vector2.right * (rb.velocity.x * deceleration) * Time.deltaTime;
                 }
+            }
+            else {
+                doJump = false;
+                jumpTimer = jumpIntervalTime;
             }
         }
     }
@@ -74,7 +86,7 @@ public class BlueCow : MonoBehaviour {
     }
 
     private bool CheckWall(float dir) {
-        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y / 2, Vector2.right * dir, (col.bounds.extents.x / 2) + raycastExtraWidth, whatIsWall);
+        return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y / 2, Vector2.right * dir, col.bounds.extents.x + raycastExtraWidth, whatIsWall);
     }
 
     void Animation() {
