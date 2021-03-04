@@ -35,19 +35,19 @@ public class Inventory : MonoBehaviour {
     }
 
     public void UpdateUI() {
-        //speedBoost.ItemUI.SetActive(speedBoost.count > 0 && !speedBoost.powerUpControl.active);
+        speedBoost.ItemUI.SetActive(speedBoost.count > 0 && !speedBoost.powerUpControl.active);
         speedBoost.countUI.text = "" + speedBoost.count;
 
-        //jumpBoost.ItemUI.SetActive(jumpBoost.count > 0 && !jumpBoost.powerUpControl.active);
+        jumpBoost.ItemUI.SetActive(jumpBoost.count > 0 && !jumpBoost.powerUpControl.active);
         jumpBoost.countUI.text = "" + jumpBoost.count;
 
-        //healthBoost.ItemUI.SetActive(healthBoost.count > 0 && !healthBoost.powerUpControl.active);
+        healthBoost.ItemUI.SetActive(healthBoost.count > 0 && !healthBoost.powerUpControl.active);
         healthBoost.countUI.text = "" + healthBoost.count;
 
-        //immortalBoost.ItemUI.SetActive(immortalBoost.count > 0 && !immortalBoost.powerUpControl.active);
+        immortalBoost.ItemUI.SetActive(immortalBoost.count > 0 && !immortalBoost.powerUpControl.active);
         immortalBoost.countUI.text = "" + immortalBoost.count;
 
-        //superBoost.ItemUI.SetActive(superBoost.count > 0 && !superBoost.powerUpControl.active);
+        superBoost.ItemUI.SetActive(superBoost.count > 0 && !superBoost.powerUpControl.active);
         superBoost.countUI.text = "" + superBoost.count;
     }
 
