@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4604720127460023105}
   - component: {fileID: 4604720127460023106}
   - component: {fileID: 4604720127460023110}
+  - component: {fileID: 4658989640999057896}
   m_Layer: 11
   m_Name: Can_Jump
   m_TagString: Untagged
@@ -133,3 +134,19 @@ MonoBehaviour:
     Leaves a real bad aftertaste'
   i: {fileID: 0}
   powerUpType: 1
+--- !u!114 &4658989640999057896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604720127460023107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5549dc94491f3b440a7600060ee16001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAmount: {x: 0, y: 0.005}
+  moveSpeed: 3
+  rotateAmount: 3
+  rotateSpeed: 2

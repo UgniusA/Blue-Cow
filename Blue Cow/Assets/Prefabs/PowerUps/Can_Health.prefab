@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7122312010500079155}
   - component: {fileID: 7122312010500079154}
   - component: {fileID: 7122312010500079157}
+  - component: {fileID: 4778237719160055881}
   m_Layer: 11
   m_Name: Can_Health
   m_TagString: Untagged
@@ -135,3 +136,19 @@ MonoBehaviour:
     with you I''m not too sure'
   i: {fileID: 0}
   powerUpType: 2
+--- !u!114 &4778237719160055881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122312010500079156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5549dc94491f3b440a7600060ee16001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAmount: {x: 0, y: 0.005}
+  moveSpeed: 3
+  rotateAmount: 3
+  rotateSpeed: 2
