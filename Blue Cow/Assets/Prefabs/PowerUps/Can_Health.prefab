@@ -125,8 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   itemName: Health Boost
-  itemSprite: {fileID: 7368729067709997792, guid: ecefadc7719ba0c46afba732fdf86e37,
-    type: 3}
+  itemSprite: {fileID: 21300000, guid: ea8ba3985df4be448b89b591ddac3d63, type: 3}
   itemInfo: 'Drink this item to gain bonus health!
 
 

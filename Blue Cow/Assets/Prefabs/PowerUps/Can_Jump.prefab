@@ -125,8 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 0}
   itemName: Jump Boost
-  itemSprite: {fileID: 4321021051792268310, guid: ecefadc7719ba0c46afba732fdf86e37,
-    type: 3}
+  itemSprite: {fileID: 21300000, guid: 12acdad22330bc6418cc9fd0e9577c37, type: 3}
   itemInfo: 'Go sky high with this new and improved energy boosting drink!
 
 
