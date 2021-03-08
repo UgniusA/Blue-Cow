@@ -4,10 +4,25 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour {
 
     public bool active;
+    public GameObject[] buffUI;
+    Transform buffsCanvas;
+
+    [Header("Attributes")]
     public float duration = 1f;
+
+    void Start() {
+        buffsCanvas = FindObjectOfType<Canvas>().transform.Find("Buffs");
+    }
 
     public void EnablePowerUp() {
         StartCoroutine(DoPowerUp());
+
+        foreach (GameObject buffObj in buffUI) {
+            GameObject buff = Instantiate(buffObj);
+            buff.transform.SetParent(buffsCanvas);
+            buff.transform.localScale = Vector3.one;
+            buff.transform.GetComponentInChildren<FillTimerUI>().StartTimer(duration);
+        }
     }
 
     public IEnumerator DoPowerUp() {

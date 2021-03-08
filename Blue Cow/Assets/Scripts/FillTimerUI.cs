@@ -6,16 +6,12 @@ using UnityEngine.UI;
 public class FillTimerUI : MonoBehaviour {
 
     [SerializeField] bool loop;
+    [SerializeField] bool destroyOnEnd;
     bool animate;
     float timer;
     float timerLength;
 
     Image imageFill;
-
-    void Start() {
-        imageFill = GetComponent<Image>();
-        imageFill.enabled = false;
-    }
 
     void Update() {
         if (animate) {
@@ -29,15 +25,23 @@ public class FillTimerUI : MonoBehaviour {
                     timer = timerLength;
                 }
                 else {
-                    timer = 0;
-                    animate = false;
-                    imageFill.enabled = false;
+                    if (destroyOnEnd) {
+                        Destroy(transform.parent.gameObject);
+                    }
+                    else {
+                        timer = 0;
+                        animate = false;
+                        imageFill.enabled = false;
+                    }
                 }
             }
         }
     }
 
     public void StartTimer(float duration) {
+        imageFill = GetComponent<Image>();
+        imageFill.enabled = false;
+
         timerLength = duration;
         timer = duration;
         animate = true;
