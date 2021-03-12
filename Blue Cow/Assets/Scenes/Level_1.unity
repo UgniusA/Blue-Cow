@@ -29008,7 +29008,12 @@ MonoBehaviour:
   - name: Bull
     clip: {fileID: 8300000, guid: e572380ab2120a24b869b59ef662bf22, type: 3}
     volume: 0.689
-    pitch: 1.06
+    pitch: 1
+    source: {fileID: 0}
+  - name: TakingDamage
+    clip: {fileID: 8300000, guid: 86f267ecb7366064db194dab6468436d, type: 3}
+    volume: 0.689
+    pitch: 1
     source: {fileID: 0}
 --- !u!4 &1418024374
 Transform:
