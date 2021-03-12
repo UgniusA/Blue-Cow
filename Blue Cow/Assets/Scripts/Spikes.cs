@@ -15,6 +15,7 @@ public class Spikes : MonoBehaviour {
         if (healthScript != null) {
             if (damageOverTime) {
                 if (DOT == null) {
+                    FindObjectOfType<AudioManager>().Play("TakingDamage");
                     DOT = StartCoroutine(healthScript.DamageOverTime(damage, tickTime, 0f));
                 }
             }
