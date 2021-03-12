@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject quitConfirmMenu;
     [SerializeField] GameObject restartConfirmMenu;
+    [SerializeField] GameObject OptionsButtonMenu;
 
     public void PauseGame() {/*
         Cursor.lockState = CursorLockMode.None;
@@ -55,5 +56,11 @@ public class PauseMenu : MonoBehaviour {
 
     public void QuitGame() {
         Application.Quit();
+    }
+    
+    public void OpenOptions()
+    {
+        OptionsButtonMenu.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 }
