@@ -11,6 +11,8 @@ public class Collectable : MonoBehaviour {
 
     [HideInInspector] public Inventory i;
 
+    [SerializeField] AudioClip pickupSFX;
+
     void Start() {
         i = FindObjectOfType<Inventory>();
     }
@@ -20,6 +22,7 @@ public class Collectable : MonoBehaviour {
             if (pickupEffect != null) {
                 Instantiate(pickupEffect, transform.position, transform.rotation);
             }
+            i.GetComponent<AudioSource>().PlayOneShot(pickupSFX);
             Pickup();
             Destroy(gameObject);
         }

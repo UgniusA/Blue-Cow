@@ -132,6 +132,7 @@ MonoBehaviour:
     Yes, that''s right. With this energy
     drink you get the bonus effects of all other BlueCow products.'
   i: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 555ea4a13adfd3b4abb1f794fbd440b4, type: 3}
   powerUpType: 4
 --- !u!114 &6343788702679546780
 MonoBehaviour:

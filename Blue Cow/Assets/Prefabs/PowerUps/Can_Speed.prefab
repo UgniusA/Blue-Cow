@@ -129,6 +129,7 @@ MonoBehaviour:
   itemInfo: Test your speed with this enhanced energy drink. Specifically tailored
     to your feet so they keep going, quicker and for longer!
   i: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 555ea4a13adfd3b4abb1f794fbd440b4, type: 3}
   powerUpType: 0
 --- !u!114 &1859464150065712436
 MonoBehaviour:

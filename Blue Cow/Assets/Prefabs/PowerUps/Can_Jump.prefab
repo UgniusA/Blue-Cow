@@ -132,6 +132,7 @@ MonoBehaviour:
     Disclaimer:
     Leaves a real bad aftertaste'
   i: {fileID: 0}
+  pickupSFX: {fileID: 8300000, guid: 555ea4a13adfd3b4abb1f794fbd440b4, type: 3}
   powerUpType: 1
 --- !u!114 &4658989640999057896
 MonoBehaviour:

@@ -30,7 +30,10 @@ public class Inventory : MonoBehaviour {
     public Image itemSprite;
     public TextMeshProUGUI itemInfo;
 
+    AudioSource audioSource;
+
     void Start() {
+        audioSource = GetComponent<AudioSource>();
         itemInfoUI.SetActive(false);
         UpdateUI();
         speedBoost.lockUI.enabled = true;
@@ -88,6 +91,7 @@ public class Inventory : MonoBehaviour {
                 //if (speedBoost.count == 1) speedBoost.powerUpControl = null;
                 speedBoost.count--;
                 UpdateUI();
+                audioSource.Play();
             }
         }
     }
@@ -100,6 +104,7 @@ public class Inventory : MonoBehaviour {
                 //if (jumpBoost.count == 1) jumpBoost.powerUpControl = null;
                 jumpBoost.count--;
                 UpdateUI();
+                audioSource.Play();
             }
         }
     }
@@ -112,6 +117,7 @@ public class Inventory : MonoBehaviour {
                 //if (healthBoost.count == 1) healthBoost.powerUpControl = null;
                 healthBoost.count--;
                 UpdateUI();
+                audioSource.Play();
             }
         }
     }
@@ -124,6 +130,7 @@ public class Inventory : MonoBehaviour {
                 //if (immortalBoost.count == 1) immortalBoost.powerUpControl = null;
                 immortalBoost.count--;
                 UpdateUI();
+                audioSource.Play();
             }
         }
     }
@@ -136,6 +143,7 @@ public class Inventory : MonoBehaviour {
                 //if (superBoost.count == 1) superBoost.powerUpControl = null;
                 superBoost.count--;
                 UpdateUI();
+                audioSource.Play();
             }
         }
     }
