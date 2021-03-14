@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool isGrounded;
 
+    [SerializeField] AudioSource footsteps;
     CapsuleCollider2D col;
     Rigidbody2D rb;
 
@@ -35,8 +36,16 @@ public class PlayerController : MonoBehaviour {
             if (hor < 0) facingRight = false;
             isMoving = (hor != 0) && canMove && (rb.velocity.x != 0);
 
-            if (Mathf.Abs(rb.velocity.x) < moveSpeed) {
+            if (Mathf.Abs(rb.velocity.x) < moveSpeed) { 
                 rb.velocity += Vector2.right * hor * moveSpeed * acceleration * Time.deltaTime;
+            }
+            if(hor != 0)
+            {
+                footsteps.volume = 1;
+            }
+            else
+            {
+                footsteps.volume = 0;
             }
 
             //Vertical Movement

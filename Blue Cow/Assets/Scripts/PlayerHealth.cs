@@ -6,6 +6,7 @@ public class PlayerHealth : Health {
 
     CheckpointManager cm;
 
+
     public override void Initialise() {
         cm = FindObjectOfType<CheckpointManager>();
         base.Initialise();

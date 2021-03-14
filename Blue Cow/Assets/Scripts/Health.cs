@@ -13,6 +13,7 @@ public class Health : MonoBehaviour, IDamageable {
     [SerializeField] SpriteRenderer sr;
     [SerializeField] Color hitColor;
     [SerializeField] float colorTimer;
+    [SerializeField] AudioSource soundEffect;
 
     public virtual void Initialise() {
         UpdateHealth();
@@ -25,6 +26,10 @@ public class Health : MonoBehaviour, IDamageable {
     public void Damage(int damage) {
         if (!immortal) {
             health -= damage;
+            if(soundEffect != null)
+            {
+                soundEffect.Play();
+            }
             StartCoroutine(HitVisuals(colorTimer, damage));
             UpdateHealth();
         }

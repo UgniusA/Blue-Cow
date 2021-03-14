@@ -7,7 +7,7 @@ public class Spikes : MonoBehaviour {
     [SerializeField] bool damageOverTime;
     [SerializeField] int damage = 50;
     [SerializeField] float tickTime = 0.1f;
-
+ 
     Coroutine DOT;
 
     void OnTriggerEnter2D(Collider2D collision) {

@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float chargeResetTime = 1f;
     float waitTillCharge;
     [SerializeField] SpriteRenderer sr;
+    [SerializeField] AudioSource soundEffect;
 
     int moveDir;
     CapsuleCollider2D col;
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour {
 
                 if (Physics2D.CircleCast(col.bounds.center, col.bounds.extents.y, Vector2.right * moveDir, (col.bounds.extents.x / 2) + 0.01f, collisionLayers)) {
                     player.GetComponent<Health>().Damage(damage);
+                    soundEffect.Play();
                     currentState = EnemyState.Waiting;
                 }
                 break;

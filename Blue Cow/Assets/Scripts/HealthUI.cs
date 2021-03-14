@@ -13,6 +13,7 @@ public class HealthUI : MonoBehaviour {
     [SerializeField] Sprite immortalHeartHalf;
     List<GameObject> hearts = new List<GameObject>();
 
+
     Health healthScript;
 
     // Start is called before the first frame update
