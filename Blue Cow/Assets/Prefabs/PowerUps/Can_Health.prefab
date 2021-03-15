@@ -136,6 +136,8 @@ MonoBehaviour:
   i: {fileID: 0}
   pickupSFX: {fileID: 8300000, guid: 555ea4a13adfd3b4abb1f794fbd440b4, type: 3}
   powerUpType: 2
+  FootSteps: {fileID: 6682241585512516664, guid: df3656d43f0ef07448078dd48b9f58da,
+    type: 3}
 --- !u!114 &4778237719160055881
 MonoBehaviour:
   m_ObjectHideFlags: 0

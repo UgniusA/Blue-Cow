@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject CanvasUI;
     [SerializeField] GameObject AudioManager;
+    [SerializeField] GameObject FootSteps;
 
     // Start is called before the first frame update
     void Start() {
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour {
         winMenu.SetActive(true);
         CanvasUI.SetActive(false);
         AudioManager.SetActive(false);
+        FootSteps.SetActive(false);
     }
 
 

@@ -10,12 +10,14 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject quitConfirmMenu;
     [SerializeField] GameObject restartConfirmMenu;
     [SerializeField] GameObject OptionsButtonMenu;
+    [SerializeField] GameObject FootSteps;
 
     public void PauseGame() {/*
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;*/
         paused = true;
         Time.timeScale = 0;
+        FootSteps.SetActive(false);
         pauseMenu.SetActive(true);
         quitConfirmMenu.SetActive(false);
         restartConfirmMenu.SetActive(false);
@@ -27,6 +29,7 @@ public class PauseMenu : MonoBehaviour {
         paused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        FootSteps.SetActive(true);
         quitConfirmMenu.SetActive(false);
         restartConfirmMenu.SetActive(false);
     }
@@ -40,7 +43,7 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         quitConfirmMenu.SetActive(false);
-        restartConfirmMenu.SetActive(false);
+        restartConfirmMenu.SetActive(false);;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

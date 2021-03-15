@@ -6,6 +6,7 @@ public class PowerUpPickUp : Collectable {
 
     public enum PowerUpType { Speed, Jump, Health, Immortal, All};
     [SerializeField] PowerUpType powerUpType = PowerUpType.Health;
+    [SerializeField] GameObject FootSteps;
 
     public override void Pickup() {
         switch (powerUpType) {
@@ -14,6 +15,7 @@ public class PowerUpPickUp : Collectable {
                 if (!i.speedBoost.hasSeen) {
                     DisplayInformation();
                     i.speedBoost.hasSeen = true;
+                    FootSteps.SetActive(false);
                 }
                 break;
 
