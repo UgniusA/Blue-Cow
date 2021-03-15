@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] AudioSource footsteps;
     CapsuleCollider2D col;
     Rigidbody2D rb;
+    [SerializeField] GameObject winMenu;
+    [SerializeField] GameObject CanvasUI;
+    [SerializeField] GameObject AudioManager;
 
     // Start is called before the first frame update
     void Start() {
@@ -64,5 +67,22 @@ public class PlayerController : MonoBehaviour {
 
     private bool CheckGrounded() {
         return Physics2D.CircleCast(col.bounds.center, col.bounds.extents.x, Vector2.down, col.bounds.extents.y + raycastExtraHeight, whatIsGround);
+    }
+
+    void Win()
+    {
+        winMenu.SetActive(true);
+        CanvasUI.SetActive(false);
+        AudioManager.SetActive(false);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BlueCow")
+        {
+            Win();
+            Time.timeScale = 0;
+        }
     }
 }
